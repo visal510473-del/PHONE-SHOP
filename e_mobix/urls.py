@@ -23,6 +23,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('products.urls')),
     path('login/', views.login_view, name='login'), # ត្រូវប្រាកដថាមាន name='login' នេះ
+    path('login/', views.login_view, name='login'),      # ត្រូវមាន name='login'
+    path('register/', views.register_view, name='register'), # ត្រូវមាន name='register'
+    path('logout/', views.logout_view, name='logout'),    # ត្រូវមាន name='logout'
 ]
 
 urlpatterns += [
