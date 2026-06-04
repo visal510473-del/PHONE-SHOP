@@ -46,7 +46,10 @@ urlpatterns = [
     path('login/', accounts_views.login_view, name='login'),
     path('register/', accounts_views.register_view, name='register'),
     path('logout/', accounts_views.logout_view, name='logout'),
+​​​​​
     path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT}),
+    path('static/<path:path>', serve, {'document_root': settings.STATIC_ROOT}),
+  
 ]
 
 if settings.DEBUG:
