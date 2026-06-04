@@ -18,6 +18,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf import settings
+from django.views.static import serve
+from django.urls import path, re_path
 
 from cart.views import add_to_cart, cart_view
 from dashboard import views
@@ -43,7 +46,9 @@ urlpatterns = [
     path('login/', accounts_views.login_view, name='login'),
     path('register/', accounts_views.register_view, name='register'),
     path('logout/', accounts_views.logout_view, name='logout'),
+    path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT}),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
