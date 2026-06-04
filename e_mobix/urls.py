@@ -22,6 +22,7 @@ from django.views.static import serve
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('products.urls')),
+    path('login/', views.login_view, name='login'), # ត្រូវប្រាកដថាមាន name='login' នេះ
 ]
 
 urlpatterns += [
