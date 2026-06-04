@@ -18,16 +18,16 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.views.static import serve
+from products import views # <--- សូមបងបន្ថែមបន្ទាត់នេះចូល!
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('products.urls')),
-    path('login/', views.login_view, name='login'), # ត្រូវប្រាកដថាមាន name='login' នេះ
-    path('login/', views.login_view, name='login'),      # ត្រូវមាន name='login'
-    path('register/', views.register_view, name='register'), # ត្រូវមាន name='register'
-    path('logout/', views.logout_view, name='logout'),    # ត្រូវមាន name='logout'
 ]
 
 urlpatterns += [
     path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT}),
+    path('login/', views.login_view, name='login'),
+    path('register/', views.register_view, name='register'),
+    path('logout/', views.logout_view, name='logout'),
 ]
